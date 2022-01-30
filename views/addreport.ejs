@@ -5,7 +5,7 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Add Record</title>
+  <title>Courses Setting</title>
   <link rel="icon" href="/assets/favicon/course.png" type="image/gif" sizes="16x16">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
@@ -23,16 +23,16 @@
 
   <!-- sidenav -->
   <ul id="slide-out" class="sidenav blue darken-2">
-    
 
-    
+
+
     <li><a href="/Addpatient" class="waves-effect waves-light white-text"><i
           class="material-icons white-text">add</i>Add Patient</a></li>
-    <li><a href="/addreport" class="waves-effect waves-light white-text"><i
-          class="material-icons white-text">add</i>Add Report</a></li>
-   
-      <div class="divider white-text"></div>
-   
+    <li><a href="/addreport" class="waves-effect waves-light white-text"><i class="material-icons white-text">add</i>Add
+        Report</a></li>
+
+    <div class="divider white-text"></div>
+
   </ul>
 
   <div class="grid">
@@ -40,196 +40,222 @@
     <div id="course-input">
       <h6>Patient Details</h6>
       <form action="/postreport" method="post">
-      <div class="input-field col s6">
-        <input id="cname" type="text" name="fullName" class="validate">
-        <label for="cname">Full Name</label>
-      </div>
-      <div class="input-field col s6">
-        <input id="cno" type="email" name="email" class="validate">
-        <label for="cno">Email ID</label>
-      </div>
-      <div class="input-field col s6">
-      <h6>Report Type</h6>
-      <select id="schooldd" class="input-field col s12" name="reportType" onchange="myFunction()">
-        <option value="" disabled selected>Choose your option</option>
-        <option value="1">Blood</option>
-        <option value="2">Urine</option>
-        <option value="3">Sugar</option>
-        <option value="4">Blood Pressure</option>
-      </select>
-    </div>
-    <div id="Blood" style="display: none;">
-      <div class="input-field col s6">
-        <input id="u1" type="number" name="hemoglobin" class="validate" >
-        <label for="u1">Hemoglobin</label>
-      </div>
-      <div class="input-field col s6">
-        <input id="u2" type="number" name="RBC_count" class="validate">
-        <label for="u2">RBC count</label>
-      </div>
-      <div class="input-field col s6">
-        <input id="u3" type="number" name="WBC" class="validate">
-        <label for="u3">WBC Cells</label>
-      </div>
-      <div class="input-field col s6">
-        <input id="u3" type="number" name="platelets" class="validate">
-        <label for="u3">platelets</label>
-      </div>
-    </div>
-    <div id="Urine" style="display: none;">
-      <div class="input-field col s6">
-        <input id="u1" type="number" name="Epinephrine" class="validate" >
-        <label for="u1">Epinephrine</label>
-      </div>
-      <div class="input-field col s6">
-        <input id="u2" type="number" name="Metanepherine" class="validate">
-        <label for="u2">Metanepherine</label>
-      </div>
-      <div class="input-field col s6">
-        <input id="u3" type="number" name="Norepinephrinne" class="validate">
-        <label for="u3">Norepinephrinne</label>
-      </div>
-      <div class="input-field col s6">
-        <input id="u3" type="number" name="Dopamine" class="validate">
-        <label for="u3">Dopamine</label>
-      </div>
-    </div>
-
-    <div id="Sugar" style="display: none;">
-      <div class="input-field col s6">
-        <input id="u1" type="number" name="sugarfast" class="validate" >
-        <label for="u1">Sugar Fasting </label>
-      </div>
-      <div class="input-field col s6">
-        <input id="u2" type="number" name="sugar1hr" class="validate">
-        <label for="u2">Sugar After 1 hr</label>
-      </div>
-      <div class="input-field col s6">
-        <input id="u3" type="number" name="sugar3hr" class="validate">
-        <label for="u3">sugar After 3 hr</label>
-      </div>
-    </div>
-
-    <div id="BP" style="display: none;">
-      <div class="input-field col s6">
-        <input id="u1" type="number" name="sBP" class="validate" >
-        <label for="u1">Systolic (mm Hg)</label>
-      </div>
-      <div class="input-field col s6">
-        <input id="u2" type="number" name="dBP" class="validate">
-        <label for="u2">Diastolic (mm Hg)</label>
-      </div>
-      <div class="input-field col s6">
-        <input id="u3" type="number" name="pulse" class="validate">
-        <label for="u3">Pulse</label>
-      
-      </div>
-    </div>
-     
-
-
-
-      <button type="submit" class="waves-effect waves-light btn blue darken-2" id="addcourse" >Submit</button>
-    </div>
-  </form>
-
-
-    <!-- Edit Course -->
-    <div id="edit">
-      <form action="/getotp" method="post">
-      <div id="editdel">
-        <h6>Enter Email-ID</h6>
-        <div class="input-field col s6 center">
-          <input type="email" name="email" id="cedit">
-          <label for="cedit">Enter here</label>
-          <a class="waves-effect waves-light btn blue darken-2" id="editcourse" onclick="opt()">Submit</a>
+        <div class="input-field col s6">
+          <input id="cname" type="text" name="fullName" class="validate">
+          <label for="cname">Full Name</label>
         </div>
-        <p id="msg" style="display: none;color: green;">OTP has been sent</p>
-        <div id="opt" style="display: none;">
-        <div class="input-field col s6 center">
-          <input type="number" name="otp" id="cdelete">
-          <label for="cdelete">Enter OTP</label>
-          <button type="submit" class="waves-effect waves-light btn blue darken-2" id="">Get Report</button>
+        <div class="input-field col s6">
+          <input id="cno" type="email" name="email" class="validate">
+          <label for="cno">Email ID</label>
         </div>
-      </div>
-        <!-- progress bar for all process -->
-        <div class="progress blue lighten-4" id="cprogress" style="display: none;">
-          <div class="indeterminate blue darken-2"></div>
+        <div class="input-field col s6">
+          <h6>Report Type</h6>
+          <select id="schooldd" class="input-field col s12" name="reportType" onchange="myFunction()">
+            <option value="" disabled selected>Choose your option</option>
+            <option value="1">Blood</option>
+            <option value="2">Urine</option>
+            <option value="3">Sugar</option>
+            <option value="4">Blood Pressure</option>
+          </select>
         </div>
-      </div>
+        <div id="Blood" style="display: none;">
+          <div class="input-field col s6">
+            <input id="u1" type="number" name="hemoglobin" class="validate">
+            <label for="u1">Hemoglobin</label>
+          </div>
+          <div class="input-field col s6">
+            <input id="u2" type="number" name="RBC_count" class="validate">
+            <label for="u2">RBC count</label>
+          </div>
+          <div class="input-field col s6">
+            <input id="u3" type="number" name="WBC" class="validate">
+            <label for="u3">WBC Cells</label>
+          </div>
+          <div class="input-field col s6">
+            <input id="u3" type="number" name="platelets" class="validate">
+            <label for="u3">platelets</label>
+          </div>
+        </div>
+        <div id="Urine" style="display: none;">
+          <div class="input-field col s6">
+            <input id="u1" type="number" name="Epinephrine" class="validate">
+            <label for="u1">Epinephrine</label>
+          </div>
+          <div class="input-field col s6">
+            <input id="u2" type="number" name="Metanepherine" class="validate">
+            <label for="u2">Metanepherine</label>
+          </div>
+          <div class="input-field col s6">
+            <input id="u3" type="number" name="Norepinephrinne" class="validate">
+            <label for="u3">Norepinephrinne</label>
+          </div>
+          <div class="input-field col s6">
+            <input id="u3" type="number" name="Dopamine" class="validate">
+            <label for="u3">Dopamine</label>
+          </div>
+        </div>
+
+        <div id="Sugar" style="display: none;">
+          <div class="input-field col s6">
+            <input id="u1" type="number" name="sugarfast" class="validate">
+            <label for="u1">Sugar Fasting </label>
+          </div>
+          <div class="input-field col s6">
+            <input id="u2" type="number" name="sugar1hr" class="validate">
+            <label for="u2">Sugar After 1 hr</label>
+          </div>
+          <div class="input-field col s6">
+            <input id="u3" type="number" name="sugar3hr" class="validate">
+            <label for="u3">sugar After 3 hr</label>
+          </div>
+        </div>
+
+        <div id="BP" style="display: none;">
+          <div class="input-field col s6">
+            <input id="u1" type="number" name="sBP" class="validate">
+            <label for="u1">Systolic (mm Hg)</label>
+          </div>
+          <div class="input-field col s6">
+            <input id="u2" type="number" name="dBP" class="validate">
+            <label for="u2">Diastolic (mm Hg)</label>
+          </div>
+          <div class="input-field col s6">
+            <input id="u3" type="number" name="pulse" class="validate">
+            <label for="u3">Pulse</label>
+
+          </div>
+        </div>
+
+
+
+
+        <button type="submit" class="waves-effect waves-light btn blue darken-2" id="addcourse">Submit</button>
+    </div>
     </form>
-    </div>
 
 
-    <!-- Course Table -->
+      <!-- Edit Course -->
+      <div id="edit">
+        <form action="/getotp" method="post">
+          <div id="editdel">
+            <h6>Enter Email-ID</h6>
+            <div class="input-field col s6 center">
+              <input type="email" name="email" id="cedit">
+              <label for="cedit">Enter here</label>
+              <a class="waves-effect waves-light btn blue darken-2" id="editcourse" onclick="opt()">Submit</a>
+            </div>
+            <p id="msg" style="display: none;color: red;">OTP has been sent</p>
+            <div id="opt" style="display: none;">
+              <div class="input-field col s6 center">
+                <input type="number" name="otp" id="cdelete">
+                <label for="cdelete">Enter OTP</label>
+                <button type="submit" class="waves-effect waves-light btn blue darken-2" id="">Get Report</button>
+              </div>
+            </div>
+            <!-- progress bar for all process -->
+            <div class="progress blue lighten-4" id="cprogress" style="display: none;">
+              <div class="indeterminate blue darken-2"></div>
+            </div>
+          </div>
+        </form>
+      </div>
 
-    <div id="ctable">
-      <table id="courset" class="centered striped">
-        <thead>
-          <tr>
-            <th>Report No</th>
-            <th>Patient Name</th>
-            <th>Date</th>
-            <th>Type</th>
-            <th>Open View</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-    <div id="padding"></div>
+
+      <!-- Course Table -->
+
+      <div id="ctable">
+        <table id="courset" class="centered striped">
+          <thead>
+            <tr>
+              <th>Report No</th>
+              <th>Patient Name</th>
+              <th>Date</th>
+              <th>Type</th>
+              <th>Open View</th>
+            </tr>
+          </thead>
+          <tbody>
+              <%for(let i=0;i<data.length;i++ ){%>
+                
+              <tr>
+                <td><%=data[i].index%></td>
+                <td><%=data[i].name%></td>
+                <td><%=data[i].timestamp%></td>
+                <td><%=data[i].type%></td>
+                <td><a href="\assets\file<%=i%>.pdf" download>Download</a></td>
+              </tr>
+            <%}%>
+
+          </tbody>
+        </table>
+      </div>
+      <div id="padding"></div>
   </div>
 
+  <script>
+    function addCourseTable(cno, cname, intcap, extcap, cscl) {
+      var table = document.getElementById("courset");
+      var row = table.insertRow(1);
+      var cnot = row.insertCell(0);
+      var cnamet = row.insertCell(1);
+      var intcapt = row.insertCell(2);
+      var extcapt = row.insertCell(3);
+      var csclt = row.insertCell(4);
+      cnot.innerHTML = cno;
+      cnamet.innerHTML = cname;
+      intcapt.innerHTML = intcap;
+      extcapt.innerHTML = extcap;
+      csclt.innerHTML = cscl;
+      opent.innerHTML = open;
+    }
+ 
+    function maketable()
+    {
+      addCourseTable('1','Pradyumna','30-01-2022','1',"view pdf")
+      addCourseTable('2','Pradyumna','30-01-2022','2',"view pdf")
+      addCourseTable('3','Pradyumna','30-01-2022','2',"view pdf")
+      addCourseTable('4','Pradyumna','30-01-2022','1',"view pdf")
+
+    }
+    
+  </script>
 
   <!-- Compiled and minified JavaScript -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 
   <!-- side nav script -->
   <script>
-   function myFunction() {
-  var x = document.getElementById("schooldd").value;
-    if(x=='1')
-    {
-      document.getElementById("Blood").style.display = "block"; 
-      document.getElementById("Urine").style.display = "none"; 
-      document.getElementById("Sugar").style.display = "none"; 
-      document.getElementById("BP").style.display = "none"; 
+    function myFunction() {
+      var x = document.getElementById("schooldd").value;
+      if (x == '1') {
+        document.getElementById("Blood").style.display = "block";
+        document.getElementById("Urine").style.display = "none";
+        document.getElementById("Sugar").style.display = "none";
+        document.getElementById("BP").style.display = "none";
+      }
+      else if (x == '2') {
+        document.getElementById("Blood").style.display = "none";
+        document.getElementById("Urine").style.display = "block";
+        document.getElementById("Sugar").style.display = "none";
+        document.getElementById("BP").style.display = "none";
+      }
+      else if (x == '3') {
+        document.getElementById("Blood").style.display = "none";
+        document.getElementById("Urine").style.display = "none";
+        document.getElementById("Sugar").style.display = "block";
+        document.getElementById("BP").style.display = "none";
+      }
+      else if (x == '4') {
+        document.getElementById("Blood").style.display = "none";
+        document.getElementById("Urine").style.display = "none";
+        document.getElementById("Sugar").style.display = "none";
+        document.getElementById("BP").style.display = "block";
+      }
     }
-    else if(x=='2')
-    {
-      document.getElementById("Blood").style.display = "none"; 
-      document.getElementById("Urine").style.display = "block"; 
-      document.getElementById("Sugar").style.display = "none"; 
-      document.getElementById("BP").style.display = "none"; 
+    function opt() {
+      document.getElementById("opt").style.display = "block";
+      document.getElementById("msg").style.display = "block";
     }
-    else if(x=='3')
-    {
-      document.getElementById("Blood").style.display = "none"; 
-      document.getElementById("Urine").style.display = "none"; 
-      document.getElementById("Sugar").style.display = "block"; 
-      document.getElementById("BP").style.display = "none"; 
-    }
-    else if(x=='4')
-    {
-      document.getElementById("Blood").style.display = "none"; 
-      document.getElementById("Urine").style.display = "none"; 
-      document.getElementById("Sugar").style.display = "none"; 
-      document.getElementById("BP").style.display = "block"; 
-    }
-}
-function opt(){
-  document.getElementById("opt").style.display = "block"; 
-  document.getElementById("msg").style.display = "block"; 
-}
     document.addEventListener('DOMContentLoaded', function () {
       var elems = document.querySelectorAll('.sidenav');
       var instances = M.Sidenav.init(elems);

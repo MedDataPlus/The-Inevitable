@@ -45,14 +45,17 @@
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-          </tr>
+          <%for(let i=0;i<data.length;i++ ){%>
+                
+            <tr>
+              <td><%=data[i].index%></td>
+              <td><%=data[i].name%></td>
+              <td><%=data[i].timestamp%></td>
+              <td><%=data[i].type%></td>
+              <td><a href="\assets\file<%=i%>.pdf" download>Download</a></td>
+            </tr>
+          <%}%>
+
         </tbody>
       </table>
     </div>
@@ -60,6 +63,31 @@
   </div>
 </section>
 
+<script>
+  function addCourseTable(cno, cname, intcap, extcap, cscl) {
+    var table = document.getElementById("courset");
+    var row = table.insertRow(1);
+    var cnot = row.insertCell(0);
+    var cnamet = row.insertCell(1);
+    var intcapt = row.insertCell(2);
+    var extcapt = row.insertCell(3);
+    var csclt = row.insertCell(4);
+    cnot.innerHTML = cno;
+    cnamet.innerHTML = cname;
+    intcapt.innerHTML = intcap;
+    extcapt.innerHTML = extcap;
+    csclt.innerHTML = '<a href="/pdfreport" >PDF</a>';
+  }
+
+  function maketable()
+  {
+    // addCourseTable('1','Pradyumna','30-01-2022','1',"view pdf")
+    // addCourseTable('2','Pradyumna','30-01-2022','2',"view pdf")
+    // addCourseTable('3','Pradyumna','30-01-2022','2',"view pdf")
+    // addCourseTable('4','Pradyumna','30-01-2022','3',"view pdf")
+  }
+  maketable()
+</script>
 
   <!-- Compiled and minified JavaScript -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>

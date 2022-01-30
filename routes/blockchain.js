@@ -104,7 +104,39 @@ starCountRef.on('value', (snapshot) => {
         console.error(error);
     });
 });
-
+router.get('/patientreport',(req,res)=>{
+    var table_data=[]
+        //console.log(req.body);
+        const dbRef = firebase.database().ref();
+        var psuedodata=[];
+        dbRef.child("user/Patients").child("vfiXblsHG6WopiVYxHi2qnLd0Mu2").get().then((snapshot) => {
+            var hashno = snapshot.val().report;
+            for(let i=0;i<hashno;i++)
+            {
+                psuedodata.push(snapshot.val()["hash" + i.toString()]);
+            }
+     
+            for(let i in psuedodata){
+                for(let j in obj1.chain){
+                    if(obj1.chain[j].hash==psuedodata[i]){
+                        console.log(obj1.chain[j])
+                        var smallarray={}
+                        smallarray.index=i
+                        smallarray.name=obj1.chain[j].data.fullName
+                        smallarray.timestamp=obj1.chain[j].timestamp
+                        smallarray.type=obj1.chain[j].data.reportType
+                        table_data.push(smallarray)
+                    }
+                }
+            }   
+            console.log(table_data[0])
+            res.render('patientreport',{data:table_data})             
+        }).catch((error) => {
+            console.error(error);
+        });
+        // res.render('patientreport',{data:table_data})
+   
+})
 router.post('/getotp',(req,res)=>{
     //console.log(req.body);
     const dbRef = firebase.database().ref();
@@ -123,16 +155,22 @@ router.post('/getotp',(req,res)=>{
                 {
                     psuedodata.push(snapshot.val()["hash" + i.toString()]);
                 }
-                               
+                var table_data=[]     
                 for(let i in psuedodata){
                     for(let j in obj1.chain){
                         if(obj1.chain[j].hash==psuedodata[i]){
-                            console.log(obj1.chain[j].data)
+                            console.log(obj1.chain[j])
+                            var smallarray={}
+                            smallarray.index=i
+                            smallarray.name=obj1.chain[j].data.fullName
+                            smallarray.timestamp=obj1.chain[j].timestamp
+                            smallarray.type=obj1.chain[j].data.reportType
+                            table_data.push(smallarray)
                         }
                     }
-                }
-
-                
+                }   
+                //console.log(table_data[0])
+                res.render('addreport',{data:table_data})             
             }).catch((error) => {
                 console.error(error);
             });
@@ -146,6 +184,40 @@ router.post('/getotp',(req,res)=>{
     });
 })
 
+
+router.get('/patientreport',(req,res)=>{
+    var table_data=[]
+        //console.log(req.body);
+        const dbRef = firebase.database().ref();
+        var psuedodata=[];
+        dbRef.child("user/Patients").child("vfiXblsHG6WopiVYxHi2qnLd0Mu2").get().then((snapshot) => {
+            var hashno = snapshot.val().report;
+            for(let i=0;i<hashno;i++)
+            {
+                psuedodata.push(snapshot.val()["hash" + i.toString()]);
+            }
+     
+            for(let i in psuedodata){
+                for(let j in obj1.chain){
+                    if(obj1.chain[j].hash==psuedodata[i]){
+                        console.log(obj1.chain[j])
+                        var smallarray={}
+                        smallarray.index=i
+                        smallarray.name=obj1.chain[j].data.fullName
+                        smallarray.timestamp=obj1.chain[j].timestamp
+                        smallarray.type=obj1.chain[j].data.reportType
+                        table_data.push(smallarray)
+                    }
+                }
+            }   
+            console.log(table_data[0])
+            res.render('patientreport',{data:table_data})             
+        }).catch((error) => {
+            console.error(error);
+        });
+        // res.render('patientreport',{data:table_data})
+   
+})
 
 router.get('/appendreport', (req, res) => {
     console.log("Adding block");
